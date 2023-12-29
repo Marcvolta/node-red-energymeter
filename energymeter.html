@@ -1,0 +1,66 @@
+<script type="text/javascript">
+    RED.nodes.registerType('energyMeter',{
+        category: 'function',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""},
+            topic: {value: ""},
+            inputformat: {value:"w"},
+            accuracy: {value:"100"},
+            price: {value: "", validate:function(val) {
+                return (val > 1 || val === 0.0 || val === "")  
+            }
+            }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "power.png",
+        oneditsave: function () {
+            var node = this;
+        },
+        label: function() {
+            return this.name||"energyMeter";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="energyMeter">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-topic"><i class="fa fa-tag"></i> Topic</label>
+        <input type="text" id="node-input-topic" placeholder="Topic">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-inputformat"><i class="fa fa-arrow-right"></i> Input power format</label>
+        <select id="node-input-inputformat">
+            <option value="w">watt</option>
+            <option value="kw">kw</option>
+            <option value="mw">megawatt</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <div class="form-tips"><b>Info:</b> Define the number of decimal places for energy calculation.</div>
+        <label for="node-input-accuracy"><i class="fa fa-terminal"></i> Decimal places</label>
+        <select id="node-input-accuracy">
+            <option value="1">0</option>
+            <option value="10">1</option>
+            <option value="100">2</option>
+            <option value="1000">3</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-price"><i class="fa fa-tag"></i> Price ct/kwh</label>
+        <input type="float" id="node-input-price" placeholder="ct/kwh">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="energyMeter">
+    <p>A simple node that converts the message payloads into all lower-case characters</p>
+</script>

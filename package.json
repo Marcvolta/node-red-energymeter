@@ -1,0 +1,30 @@
+{
+  "name": "red-contrib-energymeter",
+  "version": "0.6.0",
+  "description": "A Node-Red node to calculate energie consumption.",
+  "homepage": "https://github.com/Marcvolta/node-red-energymeter#readme",
+  "bugs": {
+    "url": "https://github.com/Marcvolta/node-red-energymeter/issues"
+  },
+  "license": "Apache-2.0",
+  "author": "Marco Eberlein <marco@misterhomepage.de> (https://misterhomepage.de)",
+  "node-red": {
+    "nodes": {
+      "lower-case": "energymeter.js"
+    }
+  },
+  "scripts": {
+    "debug": "node /Users/Marco/AppData/Roaming/nvm/v20.10.0/node_modules/node-red/red.js"
+  },
+  "main": "energymeter.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marcvolta/node-red-energymeter.git"
+  },
+  "keywords": [
+    "node-red",
+    "energymeter",
+    "power",
+    "energy"
+  ]
+}
