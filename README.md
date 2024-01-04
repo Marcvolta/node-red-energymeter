@@ -16,12 +16,12 @@ As you may use one or more appliance in your home automation which are able to o
 
 ## In Node-RED (preferred)
 
-* Via Manage Palette -> Search for "node-red-contrib-energymeter"
+* Via Manage Palette -> Search for "node-red-contrib-simple-energymeter"
 
 ## In a shell
 Basic installation:
 * go to the Node-RED "userDir" folder, typically `~/.node-red`
-* run `npm install node-red-contrib-energymeter`
+* run `npm install node-red-contrib-simple-energymeter`
 
 ## Usage
 Simply wire it with an power input device and make use of the output:
@@ -37,5 +37,5 @@ Simply wire it with an power input device and make use of the output:
 **Fig. 1:** Properties node *energymeter*
 
 
-[npm-url]: https://npmjs.org/package/node-red-contrib-energymeter
+[npm-url]: https://npmjs.org/package/node-red-contrib-simple-energymeter
 [license-url]: https://github.com/Marcvolta/node-red-energymeter/LICENSE
