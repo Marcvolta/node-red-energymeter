@@ -37,5 +37,9 @@ Simply wire it with an power input device and make use of the output:
 **Fig. 1:** Properties node *energymeter*
 
 
+[npm-version-image]: https://img.shields.io/npm/v/node-red-contrib-simple-energymeter/latest
+[npm-downloads-month-image]: https://img.shields.io/npm/dm/node-red-contrib-simple-energymeter
+[npm-downloads-total-image]: https://img.shields.io/npm/dt/node-red-contrib-simple-energymeter
 [npm-url]: https://npmjs.org/package/node-red-contrib-simple-energymeter
 [license-url]: https://github.com/Marcvolta/node-red-energymeter/LICENSE
+[license-image]:https://img.shields.io/github/license/Marcvolta/node-red-energymeter
