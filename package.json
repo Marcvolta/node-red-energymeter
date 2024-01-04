@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-simple-energymeter",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "A Node-Red node to calculate energie based on power inputs.",
   "homepage": "https://github.com/Marcvolta/node-red-energymeter#readme",
   "bugs": {
