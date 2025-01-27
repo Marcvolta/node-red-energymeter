@@ -23,7 +23,7 @@ As you may use one or more appliance in your home automation which are able to o
 
 # Changelog
 
--   see on github: [changelog](https://github.com/Marcvolta/node-red-energymeter/CHANGELOG.md)
+-   see on github: [changelog](https://github.com/Marcvolta/node-red-energymeter/blob/main/CHANGELOG.md)
 
 # Installation
 

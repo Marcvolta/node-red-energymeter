@@ -1,5 +1,9 @@
 # CHANGELOG
 
+**Version 0.7.1** - January 2025<br/>
+
+-   FIX: link to CHANGELOG.md<br/>
+
 **Version 0.7.0** - January 2025<br/>
 
 -   NEW: file persistance<br/>
