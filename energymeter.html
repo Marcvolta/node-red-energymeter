@@ -1,16 +1,19 @@
 <script type="text/javascript">
-    RED.nodes.registerType('energyMeter',{
-        category: 'function',
-        color: '#a6bbcf',
+    RED.nodes.registerType("energyMeter", {
+        category: "function",
+        color: "#3FADB5",
         defaults: {
-            name: {value:""},
-            topic: {value: ""},
-            inputformat: {value:"w"},
-            accuracy: {value:"100"},
-            price: {value: "", validate:function(val) {
-                return (val > 1 || val === 0.0 || val === "")  
-            }
-            }
+            name: { value: "" },
+            topic: { value: "" },
+            filepath: { value: "" },
+            inputformat: { value: "w" },
+            accuracy: { value: "100" },
+            price: {
+                value: "",
+                validate: function (val) {
+                    return val > 1 || val === 0.0 || val === "";
+                },
+            },
         },
         inputs: 1,
         outputs: 1,
@@ -18,21 +21,26 @@
         oneditsave: function () {
             var node = this;
         },
-        label: function() {
-            return this.name||"energyMeter";
-        }
+        label: function () {
+            return this.name || "energyMeter";
+        },
     });
 </script>
 
 <script type="text/html" data-template-name="energyMeter">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
-        <input type="text" id="node-input-name" placeholder="Name">
+        <input type="text" id="node-input-name" placeholder="Name" />
     </div>
 
     <div class="form-row">
         <label for="node-input-topic"><i class="fa fa-tag"></i> Topic</label>
-        <input type="text" id="node-input-topic" placeholder="Topic">
+        <input type="text" id="node-input-topic" placeholder="Topic" />
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-filepath"><i class="fa fa-file"></i> Filepath storage</label>
+        <input type="text" id="node-input-filepath" placeholder="Leave empty to use contextStorage from settings.js" />
     </div>
 
     <div class="form-row">
@@ -56,8 +64,8 @@
     </div>
 
     <div class="form-row">
-        <label for="node-input-price"><i class="fa fa-tag"></i> Price ct/kwh</label>
-        <input type="float" id="node-input-price" placeholder="ct/kwh">
+        <label for="node-input-price"><i class="fa fa-dollar"></i> Price ct/kwh</label>
+        <input type="float" id="node-input-price" placeholder="ct/kwh" />
     </div>
 </script>
 
