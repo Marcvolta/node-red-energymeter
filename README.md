@@ -50,6 +50,8 @@ Simply wire it to a power input device and make use of the output:
 
 ### New: add filepath for persistence storage, so data won't be lost on restart
 
+#### For example: /home/youruser/.node-red/energymeter_1.json
+
 ![energymeter-properties](images/properties_energymeter_7.0.png "Node energymeter porperties")
 
 **Fig. 2:** Properties node _energymeter_
