@@ -1,5 +1,9 @@
 # CHANGELOG
 
+**Version 0.7.2** - January 2025<br/>
+
+-   Added: example and explanation using filepath storage<br/>
+
 **Version 0.7.1** - January 2025<br/>
 
 -   FIX: link to CHANGELOG.md<br/>
