@@ -17,6 +17,7 @@ As you may use one or more appliance in your home automation which are able to o
 -   &rarr; calculate energy from simple power input
 -   &rarr; persistance storage
 -   &rarr; various setter functions
+-   &rarr; data export functionality
 
 > [!IMPORTANT]
 > Make sure write access is granted when using file storage.
@@ -71,6 +72,47 @@ Send a ...
 -   `msg.payload= {"set":{"daily":100}}` to set a daily energy value
 -   ...
 -   `msg.payload= {"set":{"yearly":100}}` to set a yearly energy value
+
+## Export data
+
+Export energy data in structured JSON format for further processing (e.g., logging to file, sending via email, or storing in a database).
+
+Send a ...
+
+-   `msg.payload = "exportDaily"` to export daily energy data
+
+**Returns:**
+```json
+{
+  "exportType": "daily",
+  "timestamp": "2025-10-04T14:55:00.000Z",
+  "data": {
+    "period": "daily",
+    "date": "2025-10-04",
+    "value": 12.5,
+    "cost": 3.75
+  }
+}
+```
+
+-   `msg.payload = "exportAll"` to export all energy data (daily, weekly, monthly, yearly)
+
+**Returns:**
+```json
+{
+  "exportType": "all",
+  "timestamp": "2025-10-04T14:55:00.000Z",
+  "data": {
+    "daily": { "date": "2025-10-04", "value": 12.5, "cost": 3.75 },
+    "weekly": { "value": 87.3, "cost": 26.19 },
+    "monthly": { "value": 350.2, "cost": 105.06 },
+    "yearly": { "value": 4200.5, "cost": 1260.15 }
+  }
+}
+```
+
+> [!NOTE]
+> The `cost` field will be `null` if no price is configured in the node properties.
 
 [npm-version-image]: https://img.shields.io/npm/v/node-red-contrib-simple-energymeter/latest
 [npm-downloads-month-image]: https://img.shields.io/npm/dm/node-red-contrib-simple-energymeter

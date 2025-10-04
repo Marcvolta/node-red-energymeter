@@ -14,6 +14,8 @@ module.exports = function (RED) {
       "resetWeekly",
       "resetMonthly",
       "resetYearly",
+      "exportDaily",
+      "exportAll",
     ];
     const filePath = config.filepath;
 
@@ -288,6 +290,57 @@ module.exports = function (RED) {
 
             oMessagePaylod = buildPayload(accuracy);
             node.lastms = null;
+            break;
+          case "exportDaily":
+            oMessagePaylod = {
+              exportType: "daily",
+              timestamp: new Date().toISOString(),
+              data: {
+                period: "daily",
+                date: node.oValues.daily.date
+                  ? new Date(node.oValues.daily.date).toISOString().split("T")[0]
+                  : null,
+                value: customRound(node.oValues.daily.value, accuracy),
+                cost: this.price
+                  ? calculateCosts(node.oValues.daily.value, this.price)
+                  : null,
+              },
+            };
+            break;
+          case "exportAll":
+            oMessagePaylod = {
+              exportType: "all",
+              timestamp: new Date().toISOString(),
+              data: {
+                daily: {
+                  date: node.oValues.daily.date
+                    ? new Date(node.oValues.daily.date).toISOString().split("T")[0]
+                    : null,
+                  value: customRound(node.oValues.daily.value, accuracy),
+                  cost: this.price
+                    ? calculateCosts(node.oValues.daily.value, this.price)
+                    : null,
+                },
+                weekly: {
+                  value: customRound(node.oValues.weekly, accuracy),
+                  cost: this.price
+                    ? calculateCosts(node.oValues.weekly, this.price)
+                    : null,
+                },
+                monthly: {
+                  value: customRound(node.oValues.monthly, accuracy),
+                  cost: this.price
+                    ? calculateCosts(node.oValues.monthly, this.price)
+                    : null,
+                },
+                yearly: {
+                  value: customRound(node.oValues.yearly, accuracy),
+                  cost: this.price
+                    ? calculateCosts(node.oValues.yearly, this.price)
+                    : null,
+                },
+              },
+            };
             break;
         }
       }
