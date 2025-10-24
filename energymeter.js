@@ -161,10 +161,12 @@ module.exports = function (RED) {
       // ISO week: Monday is start of week (day 1), Sunday is end (day 0)
       if (lastDate) {
         var lastWeekStart = new Date(lastDate);
+        lastWeekStart.setHours(0, 0, 0, 0);
         lastWeekStart.setDate(
           lastDate.getDate() - (lastDate.getDay() || 7) + 1
         );
         var thisWeekStart = new Date(today);
+        thisWeekStart.setHours(0, 0, 0, 0);
         thisWeekStart.setDate(today.getDate() - (today.getDay() || 7) + 1);
 
         if (lastWeekStart.getTime() !== thisWeekStart.getTime()) {
@@ -289,6 +291,64 @@ module.exports = function (RED) {
             oMessagePaylod = buildPayload(accuracy);
             node.lastms = null;
             break;
+<<<<<<< Updated upstream
+=======
+          case "exportDaily":
+            oMessagePaylod = {
+              exportType: "daily",
+              timestamp: new Date().toISOString(),
+              data: {
+                period: "daily",
+                date: node.oValues.daily.date
+                  ? new Date(node.oValues.daily.date)
+                      .toISOString()
+                      .split("T")[0]
+                  : null,
+                value: customRound(node.oValues.daily.value, accuracy),
+                cost: this.price
+                  ? calculateCosts(node.oValues.daily.value, this.price)
+                  : null,
+              },
+            };
+            break;
+          case "exportAll":
+            oMessagePaylod = {
+              exportType: "all",
+              timestamp: new Date().toISOString(),
+              data: {
+                daily: {
+                  date: node.oValues.daily.date
+                    ? new Date(node.oValues.daily.date)
+                        .toISOString()
+                        .split("T")[0]
+                    : null,
+                  value: customRound(node.oValues.daily.value, accuracy),
+                  cost: this.price
+                    ? calculateCosts(node.oValues.daily.value, this.price)
+                    : null,
+                },
+                weekly: {
+                  value: customRound(node.oValues.weekly, accuracy),
+                  cost: this.price
+                    ? calculateCosts(node.oValues.weekly, this.price)
+                    : null,
+                },
+                monthly: {
+                  value: customRound(node.oValues.monthly, accuracy),
+                  cost: this.price
+                    ? calculateCosts(node.oValues.monthly, this.price)
+                    : null,
+                },
+                yearly: {
+                  value: customRound(node.oValues.yearly, accuracy),
+                  cost: this.price
+                    ? calculateCosts(node.oValues.yearly, this.price)
+                    : null,
+                },
+              },
+            };
+            break;
+>>>>>>> Stashed changes
         }
       }
 
